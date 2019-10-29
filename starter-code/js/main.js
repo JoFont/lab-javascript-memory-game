@@ -38,11 +38,24 @@ window.addEventListener("load", e => {
   }
   
   // Bind the click event of each element to a function
-  let cards = [];
+  let activeCards = memoryGame.pickedCards;
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
-      // TODO: write some code here
-      console.log('Card clicked: ', card);
+      let cardName = card.attributes["data-card-name"].value;
+      if(!activeCards.length) {
+        activeCards.push(cardName);
+        console.log("Pushed Card 1");
+        
+      } else if(!activeCards.find(e => e === cardName)) {
+        activeCards.push(cardName);
+        
+        if(memoryGame.checkIfPair(...activeCards)) {
+          
+        }
+      }
+      
+
+      // console.log('Card clicked: ', cardName);
 
     });
   });
