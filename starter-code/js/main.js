@@ -27,8 +27,7 @@ const cards = [
 
 const memoryGame = new MemoryGame(cards);
 
-document.addEventListener('load', event => {
-  // Add all the div to the HTML
+window.addEventListener("load", e => {
   for (let pic of memoryGame.cards) {
     document.querySelector('#memory_board').innerHTML += `
       <div class="card" data-card-name="${pic.name}">
@@ -37,12 +36,14 @@ document.addEventListener('load', event => {
       </div>
     `;
   }
-
+  
   // Bind the click event of each element to a function
+  let cards = [];
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
       // TODO: write some code here
       console.log('Card clicked: ', card);
+
     });
   });
-});
+})
